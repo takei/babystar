@@ -1,9 +1,7 @@
 theme1:
-  id: 1
   name: ももたまい
   users: user1, user2
 
 theme2:
-  id: 2
   name: 事務所に推されたい
   users: user3, user5
