@@ -1,4 +1,6 @@
 Babystar::Application.routes.draw do
+  get "themes/list"
+
   resources :themes
 
   # The priority is based upon order of creation:
