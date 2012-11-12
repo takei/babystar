@@ -3,6 +3,10 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div>
+    <%= f.label :users %><br />
+    <%= select_tag(:users, options_from_collection_for_select(User.all, :id, :name), :multiple => true) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
