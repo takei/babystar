@@ -1,12 +1,25 @@
 class ThemesController < ApplicationController
-  def new
-    @theme = Theme.new
-  end
-
+  # GET /themes
   def index
     @themes = Theme.all
   end
 
+  # GET /themes/:id
+  def show
+    @theme = Theme.find(params[:id])
+  end
+
+  # GET /themes/new
+  def new
+    @theme = Theme.new
+  end
+
+  # GET /themes/:id/edit
+  def edit
+    @theme = Theme.find(params[:id])
+  end
+
+  # POST /themes
   def create
     @theme = set_attributes(Theme.new, params)
 
@@ -19,6 +32,7 @@ class ThemesController < ApplicationController
     end
   end
 
+  # PUT /themes/:id
   def update
     @theme = set_attributes(Theme.find(params[:id]), params)
 
@@ -31,14 +45,7 @@ class ThemesController < ApplicationController
     end
   end
 
-  def show
-    @theme = Theme.find(params[:id])
-  end
-
-  def edit
-    @theme = Theme.find(params[:id])
-  end
-
+  # DELETE /themes/:id
   def destroy
     @theme = Theme.find(params[:id])
     @theme.destroy
