@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+td.header_info_name {
+  background-color: #5555be;
+}
+
+td.detail_info_value {
+  background-color: white;
+}

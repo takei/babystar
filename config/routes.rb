@@ -1,4 +1,20 @@
 Babystar::Application.routes.draw do
+  resources :top, :only => [ :index ]
+#①rootを指定するパターン
+  match '/top/search' , :via => :post
+#②コントローラとアクションを指定するパターン
+  match "top/search", :controller => :top, :action => :search , :via => :post
+  match "top/create", :controller => :top, :action => :create , :via => :post
+
+  
+  resources :users
+
+  resources :mentions
+
+  resources :contributors
+
+  resources :themes
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
