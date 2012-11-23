@@ -1,4 +1,18 @@
 class MentionsController < ApplicationController
+  def createBt
+    @mention = Mention.new(params[:mention])
+    respond_to do |format|
+      if @mention.save
+        format.html {
+          redirect_to indexBt_top_index_path, notice: 'Mention was successfully created.'
+        }
+      else
+        # TODO make sure if this is right 
+        format.html { render :template => 'top/index_bt' }
+      end
+    end
+  end
+
   # GET /mentions
   # GET /mentions.json
   def index

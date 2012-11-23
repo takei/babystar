@@ -1,0 +1,45 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.row {
+    margin-left: 0;
+}
+i[class^="icon-"]:before, i[class^="icon-"]:after {
+    content: "";
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+.conversation-area {
+    background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    border: 1px solid #9999ff;
+    padding: 20px 0 20px;
+    box-sizing: border-box;
+}
+.pop_tag {
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #FFB119;
+    -border-top-color: white;
+    margin-left: -85px;
+    position: relative;
+}
+.pop_tag_body {
+    float: left;
+    padding: 5px 10px;
+/*    margin: 0 0 0 -30px; */
+    border: 2px solid #FFB119;
+    background: white;
+    text-align: center;
+    color: black;
+    position: relative;
+}
+.attender-span {
+    width: 59px;
+    margin-left: 10px
+}
+.attender-img {
+    zoom:0.75;
+    -moz-transform:scale(0.75,0.75);
+}

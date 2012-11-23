@@ -1,19 +1,28 @@
 Babystar::Application.routes.draw do
-  resources :top, :only => [ :index ]
+  resources :top, :only => ['index','indexBt', 'showBt'] do
+    get 'index', :on => :collection
+    get 'indexBt', :on => :collection
+    get 'showBt'
+  end
 #①rootを指定するパターン
   match '/top/search' , :via => :post
 #②コントローラとアクションを指定するパターン
   match "top/search", :controller => :top, :action => :search , :via => :post
   match "top/create", :controller => :top, :action => :create , :via => :post
 
+  # match "mentions/createBt", :controller => :mentions, :action => :createBt , :via => :post
   
   resources :users
 
-  resources :mentions
+  resources :mentions do
+    post 'createBt', :on => :collection #:idをpathに含めないために必要
+  end
 
   resources :contributors
 
-  resources :themes
+  resources :themes do
+    get 'newBt', :on => :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

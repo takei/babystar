@@ -1,6 +1,27 @@
 class TopController < ApplicationController
 
   ##　初期表示用
+  def indexBt
+    @themes = Theme.all
+    @theme = Theme.find(1)
+    @attenders = @theme.users
+    @users = User.all
+    @mentions = @theme.mentions
+    @mention = Mention.new
+    render :template => 'top/index_bt'
+  end
+
+  def showBt
+    @themes = Theme.all
+    @theme = Theme.find(params[:top_id])
+    @attenders = @theme.users
+    @users = User.all
+    @mentions = @theme.mentions
+    @mention = Mention.new
+    render :template => 'top/index_bt'
+  end
+
+  ##　初期表示用
   def index
     ## ２つのモデルをレスポンスで返す例
     @themes = Theme.all
