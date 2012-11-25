@@ -1,6 +1,7 @@
 body {
     padding-top: 60px;
     padding-bottom: 40px;
+    background-image: url("az_subtle.png");
 }
 .row {
     margin-left: 0;
@@ -12,9 +13,9 @@ i[class^="icon-"]:before, i[class^="icon-"]:after {
     padding: 9px 0;
 }
 .conversation-area {
-    background-color: #EEEEEE;
+    background-image: url("cream_dust.png");
     border-radius: 6px 6px 6px 6px;
-    border: 1px solid #9999ff;
+    border: 1px solid #999999;
     padding: 20px 0 20px;
     box-sizing: border-box;
 }
