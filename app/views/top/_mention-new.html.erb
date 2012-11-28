@@ -3,17 +3,14 @@
 	<div class="row conversation-area" id="mention-create">
 		<div class="span1 attender-span">
 			<%= image_tag("MC900432610.png", {:class => 'attender-img'}) %>
-	    <%= collection_select(:mention, :user_id, @users, :id, :name, {}, {:style => "width:80px;"}) %>
+	    <%= collection_select(:mention, :user_id, @attenders, :id, :name, {}, {:style => "width:80px;"}) %>
 		</div>
 		<div class="span6">
 			<div class="arrow_box_left">
 				<%= f.text_area(:content, {:style => "width:90%; border:none; max-width:90%; box-shadow:none; margin-bottom:0px;", :placeholder => "I'm saying...", :rows => '3'}) %>
 				<button type="submit" class="btn-link"><i class="icon-ok-sign"></i></button>
-<!--				<%= link_to(raw('<i class="icon-ok-sign"></i>'), {:controller => 'mentions', :action => 'new'}, {:class => 'btn-link'}) %>
--->
 				<%= f.hidden_field :mentionedAt, :value => Time.now.strftime("%Y-%m-%d %H:%M:%S")  %>
 				<%= f.hidden_field :theme_id, :value => @theme.id %>
-
 			</div>	
 		</div>
 		<div class="span1 attender-span">
