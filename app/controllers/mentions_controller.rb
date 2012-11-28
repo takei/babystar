@@ -4,7 +4,7 @@ class MentionsController < ApplicationController
     respond_to do |format|
       if @mention.save
         format.html {
-          redirect_to indexBt_top_index_path, notice: 'Mention was successfully created.'
+          redirect_to indexBt_top_index_path
         }
       else
         # TODO make sure if this is right 
