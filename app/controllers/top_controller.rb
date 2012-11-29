@@ -7,7 +7,7 @@ class TopController < ApplicationController
   end
 
   def showBt
-    defineVariablesForIndex params[:top_id]
+    defineVariablesForIndex params[:theme_id]
   end
 
 private

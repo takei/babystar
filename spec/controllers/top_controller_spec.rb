@@ -20,4 +20,9 @@ describe TopController do
 		end
 	end
 
+	it 'show the specified theme and mentions on it' do
+		get :showBt, :theme_id => 1
+		expect(response).to render_template 'top/index_bt'
+	end
+
 end

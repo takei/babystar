@@ -3,16 +3,6 @@ class ThemesController < ApplicationController
     render :template => 'themes/new_bt'
   end
 
-  def showBt
-    @themes = Theme.all
-    @theme = Theme.find(params[:theme_id])
-    @attenders = @theme.users
-    @users = User.all
-    @mentions = @theme.mentions
-    @mention = Mention.new
-    render :template => 'top/index_bt'
-  end
-
   # GET /themes
   # GET /themes.json
   def index
