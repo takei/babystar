@@ -1,5 +1,7 @@
 class ThemesController < ApplicationController
   def newBt
+    @theme = Theme.new
+    @users = User.all
     render :template => 'themes/new_bt'
   end
 

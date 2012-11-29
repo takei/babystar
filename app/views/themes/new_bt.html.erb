@@ -1,5 +1,6 @@
 <% content_for :container do %>
-  <form class="form-horizontal">
+  <!-- <form class="form-horizontal"> -->
+  <%= form_for(@theme) do |f| %>
     <legend>テーマ作成</legend>
     <div class="control-group">
       <label class="control-label" for="inputThemeTitle">テーマタイトル</label>
@@ -31,9 +32,12 @@
 
     <div class="control-group">
       <div class="controls">
-        <button type="submit" class="btn"><i class="icon-ok"></i> 作成</button>
-        <button type="button" class="btn"><i class="icon-remove"></i> キャンセル</button>
+        <!-- <button type="submit" class="btn"><i class="icon-ok"></i> 作成</button> -->
+        <%= link_to(raw('<i class="icon-ok"></i>') + " 作成", {:controller => 'themes', :action => 'new'}, {:class => 'btn', :confirm => "実行しますか？"}) %>
+        <!-- <button type="button" class="btn"><i class="icon-remove"></i> キャンセル</button> -->
+        <%= link_to(raw('<i class="icon-ok"></i>') + " キャンセル", indexBt_top_index_path + '#mention-create', {:class => 'btn'}) %>
       </div>
     </div>
-  </form>
+  <% end %>
+  <!-- </form> -->
 <% end %> <!-- :container end-->
