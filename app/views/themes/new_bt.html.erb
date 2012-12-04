@@ -1,0 +1,43 @@
+<% content_for :container do %>
+  <!-- <form class="form-horizontal"> -->
+  <%= form_for(@theme) do |f| %>
+    <legend>テーマ作成</legend>
+    <div class="control-group">
+      <label class="control-label" for="inputThemeTitle">テーマタイトル</label>
+      <div class="controls">
+        <input type="text" id="inputThemeTitle" placeholder="テーマタイトル">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputDescription">テーマの説明</label>
+      <div class="controls">
+        <textarea id="textareaDescription" placeholder="テーマの説明" style="width:100%;"></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="availableUsers">参加者選択</label>
+      <div class="controls">
+        <select multiple="multiple" id="availableUsers">
+          <option>山田太郎</option>
+          <option>山田次郎</option>
+          <option>山田三郎</option>
+        </select>
+        <button type="button" id="removeUsersBtn"><i class="icon-arrow-left"></i></button>
+        <button type="button" id="selectUsersBtn"><i class="icon-arrow-right"></i></button>
+        <select multiple="multiple" id="selectedUsers">
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <!-- <button type="submit" class="btn"><i class="icon-ok"></i> 作成</button> -->
+        <%= link_to(raw('<i class="icon-ok"></i>') + " 作成", {:controller => 'themes', :action => 'new'}, {:class => 'btn', :confirm => "実行しますか？"}) %>
+        <!-- <button type="button" class="btn"><i class="icon-remove"></i> キャンセル</button> -->
+        <%= link_to(raw('<i class="icon-ok"></i>') + " キャンセル", indexBt_top_index_path + '#mention-create', {:class => 'btn'}) %>
+      </div>
+    </div>
+  <% end %>
+  <!-- </form> -->
+<% end %> <!-- :container end-->
