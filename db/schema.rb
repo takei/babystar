@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20121108135041) do
-
   create_table "contributors", :force => true do |t|
     t.integer  "theme_id"
     t.integer  "user_id"
