@@ -13,7 +13,7 @@ class TopController < ApplicationController
 private
   def defineVariablesForIndex(themeId)
     @themes = Theme.all
-    return render :template => 'themes/new_bt' if @themes.size == 0
+    return redirect_to :controller => 'themes', :action => 'newBt' if @themes.size == 0
     @theme = Theme.find(themeId)
     @attenders = @theme.users
     @users = User.all
