@@ -1,7 +1,4 @@
 Babystar::Application.routes.draw do
-<<<<<<< HEAD
-  resources :themes
-=======
   resources :top, :only => ['index'] do
     get 'indexBt', :on => :collection
   end
@@ -25,7 +22,6 @@ Babystar::Application.routes.draw do
   resources :themes do
     get 'newBt', :on => :collection
   end
->>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

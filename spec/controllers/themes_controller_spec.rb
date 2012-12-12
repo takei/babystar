@@ -5,6 +5,18 @@ require 'spec_helper'
 describe ThemesController do
   fixtures :themes, :users
 
+	it 'show the form to create theme' do
+		get :newBt
+		expect(response).to render_template 'themes/new_bt'
+	end
+
+	it 'create a theme on POST "create"' do
+		theme = Theme.new :name => 'dummy'
+		expect { 
+			post :create, :theme => theme
+		}.to change{ Theme.count }.by(1)
+	end
+
   describe "GET '/themes' (index)" do
 
     before do
@@ -116,21 +128,3 @@ describe ThemesController do
       response.should be_success
     end
   end
-=======
-require 'spec_helper'
-
-describe ThemesController do
-
-	it 'show the form to create theme' do
-		get :newBt
-		expect(response).to render_template 'themes/new_bt'
-	end
-
-	it 'create a theme on POST "create"' do
-		theme = Theme.new :name => 'dummy'
-		expect { 
-			post :create, :theme => theme
-		}.to change{ Theme.count }.by(1)
-	end
->>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
-end
