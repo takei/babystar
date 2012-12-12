@@ -1,3 +1,7 @@
+themes:
+ id: 1
+ name: theme_01
+
 theme1:
   name: ももたまい
   users: user1, user2
