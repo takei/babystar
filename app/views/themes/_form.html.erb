@@ -1,12 +1,30 @@
 <%= form_for(@theme) do |f| %>
+<<<<<<< HEAD
+=======
+  <% if @theme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@theme.errors.count, "error") %> prohibited this theme from being saved:</h2>
+
+      <ul>
+      <% @theme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+>>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<<<<<<< HEAD
   <div>
     <%= f.label :users %><br />
     <%= select_tag(:users, options_from_collection_for_select(User.all, :id, :name, @theme.users.map{|user|user.id}), :multiple => true) %>
   </div>
+=======
+>>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
   <div class="actions">
     <%= f.submit %>
   </div>

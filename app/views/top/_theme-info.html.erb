@@ -1,0 +1,12 @@
+<div class="row">
+	<h3><%= @theme.name %></h3>
+	<p>Theme 01 の説明です。</p>
+</div>
+<div class="row">
+	<h4>Attenders</h4>
+	<ol>
+		<% for attender in @attenders %> 
+			<li><%= attender.name %></li>
+		<% end %>
+	</ol>
+</div>

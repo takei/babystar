@@ -11,17 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121108092129) do
+
+  create_table "themes", :force => true do |t|
+    t.string   "name"
+=======
+ActiveRecord::Schema.define(:version => 20121108135041) do
+
+  create_table "contributors", :force => true do |t|
+    t.integer  "theme_id"
+    t.integer  "user_id"
+>>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+<<<<<<< HEAD
+  create_table "themes_users", :id => false, :force => true do |t|
+    t.integer "theme_id"
+    t.integer "user_id"
+=======
+  create_table "mentions", :force => true do |t|
+    t.string   "content"
+    t.string   "mentionedAt"
+    t.integer  "theme_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "themes", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "themes_users", :id => false, :force => true do |t|
-    t.integer "theme_id"
-    t.integer "user_id"
+>>>>>>> bf09b4d3de7925d50c38c0b4b99cced51a7bc0a0
   end
 
   create_table "users", :force => true do |t|
