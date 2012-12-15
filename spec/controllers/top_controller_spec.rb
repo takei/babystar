@@ -9,7 +9,7 @@ describe TopController do
 		end
 		it 'renders themes/new_bt' do
 			get :indexBt
-			expect(response).to render_template 'themes/new_bt'
+			expect(response).to redirect_to newBt_themes_path
 		end
 	end
 

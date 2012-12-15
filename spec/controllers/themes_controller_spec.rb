@@ -38,7 +38,7 @@ describe ThemesController do
 
   describe "GET 'themes/:id' (show)" do
     before do
-      @theme = themes(:theme1)
+      @theme = themes(:theme_01)
       get 'show', :id => @theme.id
     end
 
@@ -77,7 +77,7 @@ describe ThemesController do
 
   describe "GET 'themes/:id/edit" do
     before do
-      @theme = themes(:theme1)
+      @theme = themes(:theme_01)
       get 'edit', :id => @theme.id
     end
 
@@ -127,3 +127,4 @@ describe ThemesController do
       response.should be_success
     end
   end
+end

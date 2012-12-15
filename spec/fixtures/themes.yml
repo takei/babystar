@@ -1,11 +1,7 @@
-themes:
+theme_01:
  id: 1
  name: theme_01
 
-theme1:
-  name: ももたまい
-  users: user1, user2
-
-theme2:
-  name: 事務所に推されたい
-  users: user3, user5
+theme_02:
+ id: 2
+ name: theme_02

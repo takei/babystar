@@ -4,7 +4,7 @@ require 'spec_helper'
 describe Theme do
   fixtures :themes, :users
   before do
-    @theme = themes(:theme1)
+    @theme = themes(:theme_01)
   end
 
   it "テーマには複数のユーザが所属していること" do
@@ -15,7 +15,7 @@ end
 describe Theme, "にユーザを追加できた場合" do
   fixtures :themes, :users
   before do
-    @theme = themes(:theme1)
+    @theme = themes(:theme_01)
   end
 
   it "ユーザの数が１増えること" do
