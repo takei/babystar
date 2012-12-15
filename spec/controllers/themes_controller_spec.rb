@@ -10,10 +10,9 @@ describe ThemesController do
 	end
 
 	it 'create a theme on POST "create"' do
-		theme = Theme.new :name => 'dummy'
 		expect { 
-			post :create, :theme => theme
-		}.to change{ Theme.count }.by(1)
+			post :create, :theme => {:name => 'dummy'}
+		}.to change { Theme.count }.by(1)
 	end
 
   describe "GET '/themes' (index)" do

@@ -7,3 +7,13 @@ contributor_t1_u2:
  id: 2
  theme_id: 1
  user_id: 2
+
+contributor_t2_u1:
+ id: 3
+ theme_id: 2
+ user_id: 1
+
+contributor_t2_u2:
+ id: 4
+ theme_id: 2
+ user_id: 2
