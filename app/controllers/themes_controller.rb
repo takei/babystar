@@ -46,7 +46,19 @@ class ThemesController < ApplicationController
   # POST /themes
   # POST /themes.json
   def create
-    @theme = Theme.new(params[:theme])
+    # @theme = Theme.new(params[:theme])
+    @theme = Theme.new(:name => params[:theme][:name])
+
+    users = []
+    params[:theme][:users].each {|e| 
+      next if (e.empty?)
+      user = User.find(e)
+      users << user
+    }
+
+    logger.debug users
+
+    @theme.users = users
 
     respond_to do |format|
       if @theme.save

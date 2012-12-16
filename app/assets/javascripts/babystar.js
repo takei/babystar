@@ -2,7 +2,7 @@ $(function() {
 	$("#selectUsersBtn").on("click", function(event) {
 		$("#availableUsers option:selected").each(function(idx, element){
 			console.log("added : " + $(element).text());
-			$("<option>" + $(element).text() + "</option>").appendTo("#selectedUsers");
+			$("<option selected value=" + $(element).val() + ">" + $(element).text() + "</option>").appendTo("#selectedUsers");
 			$(element).remove();
 		});
 	});
