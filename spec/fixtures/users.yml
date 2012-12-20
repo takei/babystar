@@ -1,28 +1,9 @@
-users:
+user_01:
  id: 1
  name: user_01
  email: user_01@example.com
 
-user1:
-  name: 玉井詩織
-  email: tamai@example.com
-  themes: theme1
-
-user2:
-  name: 百田夏菜子
-  email: momota@example.com
-  themes: theme1
-
-user3:
-  name: 有安杏果
-  email: ariyasu@example.com
-  themes: theme2
-
-user4:
-  name: 佐々木彩夏
-  email: sasaki@example.com
-
-user5:
-  name: 高城れに
-  email: takagi@example.com
-  themes: theme2
+user_02:
+ id: 2
+ name: user_02
+ email: user_02@example.com
