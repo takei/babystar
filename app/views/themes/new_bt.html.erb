@@ -10,7 +10,7 @@
     <div class="control-group">
       <label class="control-label" for="inputDescription">テーマの説明</label>
       <div class="controls">
-        <textarea id="textareaDescription" placeholder="テーマの説明" style="width:100%;"></textarea>
+        <%= f.text_area :description, {:id => "textareaDescription", :placeholder => "テーマの説明", :style => "width:100%", :rows => "5"} %>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
 
     <div class="control-group">
       <div class="controls">
-        <%= link_to(raw('<i class="icon-ok"></i>') + " 作成", createBt_themes_path, {:method => :post, :class => 'btn', :confirm => "実行しますか？", :onclick => "$('#theme-form').submit()"}) %>
+        <%= link_to(raw('<i class="icon-ok"></i>') + " 作成", createBt_themes_path, {:method => :post, :class => 'btn', :id => "create-theme"}) %>
         <%= link_to(raw('<i class="icon-ok"></i>') + " キャンセル", indexBt_top_index_path + '#mention-create', {:class => 'btn'}) %>
       </div>
     </div>

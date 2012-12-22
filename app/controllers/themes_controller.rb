@@ -6,7 +6,7 @@ class ThemesController < ApplicationController
   end
 
   def createBt
-    @theme = Theme.new(:name => params[:theme][:name])
+    @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
 
     users = []
     params[:theme][:users].each {|user_id| 

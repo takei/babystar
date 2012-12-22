@@ -2,7 +2,15 @@
 require 'spec_helper'
 
 describe Theme do
-  fixtures :themes, :users
+  it 'should have description' do
+    expected = 'dummy description'
+    theme = Theme.new(:description => expected)
+    expect(theme.description).to eq(expected)
+  end
+end
+
+describe Theme do
+  fixtures :themes, :users, :contributors
   before do
     @theme = themes(:theme_01)
   end

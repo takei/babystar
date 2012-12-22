@@ -1,4 +1,5 @@
 $(function() {
+	
 	$("#selectUsersBtn").on("click", function(event) {
 		$("#availableUsers option:selected").each(function(idx, element){
 			console.log("added : " + $(element).text());
@@ -14,4 +15,18 @@ $(function() {
 			$(element).remove();
 		});
 	});
+
+	$("#create-theme").on("click", function(event) {
+		if ($("#selectedUsers option").length == 0) {
+			alert("no users selected. select or create users.");
+			return false;
+		} else {
+			if (confirm("実行しますか？")) {
+				$('#theme-form').submit();
+			} else {
+			return false;
+			}
+		}
+	});
+	
 });
