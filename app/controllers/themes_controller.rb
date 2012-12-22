@@ -5,6 +5,26 @@ class ThemesController < ApplicationController
     render :template => 'themes/new_bt'
   end
 
+  def createBt
+    @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
+
+    users = []
+    params[:theme][:users].each {|user_id| 
+      next if (user_id.empty?)
+      user = User.find(user_id)
+      users << user
+    }
+    @theme.users = users
+
+    respond_to do |format|
+      if @theme.save
+        format.html { redirect_to '/top/' + @theme.id.to_s }
+      else
+        format.html { render :template => 'themes/new_bt' }
+      end
+    end
+  end
+
   # GET /themes
   # GET /themes.json
   def index
@@ -47,7 +67,6 @@ class ThemesController < ApplicationController
   # POST /themes.json
   def create
     @theme = Theme.new(params[:theme])
-
     respond_to do |format|
       if @theme.save
         format.html { redirect_to @theme, notice: 'Theme was successfully created.' }

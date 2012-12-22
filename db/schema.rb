@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108135041) do
+ActiveRecord::Schema.define(:version => 20121221155107) do
+
   create_table "contributors", :force => true do |t|
     t.integer  "theme_id"
     t.integer  "user_id"
@@ -30,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20121108135041) do
 
   create_table "themes", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   create_table "users", :force => true do |t|

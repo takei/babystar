@@ -1,7 +1,9 @@
 theme_01:
  id: 1
  name: theme_01
+ description: description_01
 
 theme_02:
  id: 2
  name: theme_02
+ description: description_02

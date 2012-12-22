@@ -1,8 +1,9 @@
 $(function() {
+	
 	$("#selectUsersBtn").on("click", function(event) {
 		$("#availableUsers option:selected").each(function(idx, element){
 			console.log("added : " + $(element).text());
-			$("<option>" + $(element).text() + "</option>").appendTo("#selectedUsers");
+			$("<option selected value=" + $(element).val() + ">" + $(element).text() + "</option>").appendTo("#selectedUsers");
 			$(element).remove();
 		});
 	});
@@ -14,4 +15,18 @@ $(function() {
 			$(element).remove();
 		});
 	});
+
+	$("#create-theme").on("click", function(event) {
+		if ($("#selectedUsers option").length == 0) {
+			alert("no users selected. select or create users.");
+			return false;
+		} else {
+			if (confirm("実行しますか？")) {
+				$('#theme-form').submit();
+			} else {
+			return false;
+			}
+		}
+	});
+	
 });

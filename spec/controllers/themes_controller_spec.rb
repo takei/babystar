@@ -15,6 +15,27 @@ describe ThemesController do
 		}.to change { Theme.count }.by(1)
 	end
 
+  context 'when success on save' do
+    before do
+      @params = {:name => 'dummy', :users => [1]}
+    end
+    it 'redirect to top showing the new theme.' do
+      new_id = Theme.find(:all).size + 1
+      post :createBt, :theme => @params
+      expect(response).to redirect_to '/top/' + new_id.to_s
+    end
+  end
+
+  context 'when error on save' do
+    before do
+      @params = {:name => '', :users => [1]}
+    end
+    it 'render newBt.' do
+      post :createBt, :theme => @params
+      expect(response).to render_template 'themes/new_bt'
+    end
+  end
+
   describe "GET '/themes' (index)" do
 
     before do
