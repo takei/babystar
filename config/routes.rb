@@ -21,6 +21,7 @@ Babystar::Application.routes.draw do
   resources :themes do
     get 'newBt', :on => :collection
     post 'createBt', :on => :collection
+    delete 'deleteBt'
   end
 
   # The priority is based upon order of creation:
