@@ -2,7 +2,6 @@ Babystar::Application.routes.draw do
   match 'top', :controller => :top, :action => :indexBt, :via => :get, :as => 'top'
   match 'top/indexBt', :controller => :top, :action => :indexBt, :via => :get, :as => 'top_indexBt'
   match 'top/:theme_id', :controller => :top, :action => :showBt, :via => :get, :as => 'top_showBt'
-  match 'top/showUsers/:theme_id', :controller => :top, :action => :showUsers, :via => :get, :as => 'top_showUsers'
 #①rootを指定するパターン
   #match '/top/search' , :via => :post
 #②コントローラとアクションを指定するパターン
