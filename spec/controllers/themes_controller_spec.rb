@@ -4,6 +4,21 @@ require 'spec_helper'
 describe ThemesController do
   fixtures :themes, :users
 
+  context 'when delete a theme' do
+    before do
+      @theme = themes(:theme_02)
+    end
+    it 'delete theme and mentions in it' do
+      expect {
+        post :deleteBt, :theme_id => @theme.id
+      }.to change { Theme.count }.by(-1)
+    end
+    it 'redirect to top' do
+      post :deleteBt, :theme_id => @theme.id
+      expect(response).to redirect_to top_indexBt_path
+    end
+  end
+
 	it 'show the form to create theme' do
 		get :newBt
 		expect(response).to render_template 'themes/new_bt'

@@ -25,6 +25,14 @@ class ThemesController < ApplicationController
     end
   end
 
+  def deleteBt
+    @theme = Theme.find(params[:theme_id])
+    @theme.destroy
+    respond_to do |format|
+      format.html { redirect_to top_indexBt_path }
+    end
+  end
+
   # GET /themes
   # GET /themes.json
   def index
