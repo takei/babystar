@@ -2,7 +2,7 @@ class TopController < ApplicationController
 
   ##　初期表示用
   def indexBt
-    initialThemeId = 1
+    initialThemeId = Theme.find(:first)
     defineVariablesForIndex initialThemeId
   end
 
