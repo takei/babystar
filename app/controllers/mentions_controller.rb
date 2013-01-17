@@ -4,10 +4,9 @@ class MentionsController < ApplicationController
     respond_to do |format|
       if @mention.save
         format.html {
-          redirect_to indexBt_top_index_path
+          redirect_to top_showBt_path(@mention.theme_id) + "#mention-create"
         }
       else
-        # TODO make sure if this is right 
         format.html { render :template => 'top/index_bt' }
       end
     end
