@@ -19,14 +19,14 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-	gem 'twitter-bootstrap-rails'
-	gem 'less-rails'
+	gem 'twitter-bootstrap-rails', '2.1.6'
+	gem 'less-rails', '2.2.6'
 
 end
 
 gem 'jquery-rails'
 
-gem 'rspec-rails'
+gem 'rspec-rails', '2.12.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,15 +1,25 @@
+<% prev_mention_user ||= nil 
+	 isLastMentiosnOnLeft ||= false
+%>
 <% for mention in @mentions %>
 	<div class="row conversation-area">
-		<div class="span1 attender-span">
-			<%= image_tag("MC900432610.png", {:class => 'attender-img'}) %>
-			<span><%= mention.user.name %></span>
-		</div>
-		<div class="span6">
-			<span class="arrow_box_left">
-				<%= mention.content %>
-			</span>	
-		</div>
-		<div class="span1 attender-span">
-		</div>
+		<% if prev_mention_user == mention.user %>
+			<% if isLastMentiosnOnLeft %>
+				<%= render 'mention-left', {:mention => mention} %>
+				<% isLastMentiosnOnLeft = true %>
+			<% else %>
+				<%= render 'mention-right', {:mention => mention} %>
+				<% isLastMentiosnOnLeft = false %>
+			<% end %>
+		<% else %>
+			<% if isLastMentiosnOnLeft %>
+				<%= render 'mention-right', {:mention => mention} %>
+				<% isLastMentiosnOnLeft = false %>
+			<% else %>
+				<%= render 'mention-left', {:mention => mention} %>
+				<% isLastMentiosnOnLeft = true %>
+			<% end %>
+		<% end %>
 	</div><!-- conversation-area -->
+	<% prev_mention_user = mention.user %>
 <% end %>
