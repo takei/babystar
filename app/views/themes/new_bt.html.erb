@@ -15,7 +15,10 @@
     </div>
 
     <div class="control-group">
-      <label class="control-label" for="availableUsers">参加者選択</label>
+      <label class="control-label" for="availableUsers">
+        参加者選択
+        (<%= link_to 'ユーザー作成', new_user_path, {:style => 'color:#0088CC'} %>)
+      </label>
       <div class="controls">
         <%= collection_select :page, :name, @users, :id, :name, {}, {:multiple => 'multiple', :id => 'availableUsers'} %>
         <button type="button" id="removeUsersBtn"><i class="icon-arrow-left"></i></button>

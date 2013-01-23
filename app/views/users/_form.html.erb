@@ -19,6 +19,7 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+  <%= hidden_field :page, :is_request_from_new_theme, :value => @is_request_from_new_theme %>
   <div class="actions">
     <%= f.submit %>
   </div>
