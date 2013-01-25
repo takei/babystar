@@ -19,9 +19,18 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
-	gem 'twitter-bootstrap-rails', '2.1.6'
-	gem 'less-rails', '2.2.6'
+ gem 'twitter-bootstrap-rails', '2.1.6'
+ gem 'less-rails', '2.2.6'
 
+end
+
+
+group :metrics do
+  gem 'ZenTest', '= 4.8.3'
+  gem 'roodi', '~> 2.2.0'
+  gem 'reek', '~> 1.2.13'
+  gem 'flay'
+  gem 'flog'
 end
 
 gem 'jquery-rails'
