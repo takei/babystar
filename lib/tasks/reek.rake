@@ -6,5 +6,5 @@ Reek::Rake::Task.new do | t |
   t.fail_on_error = true
   t.verbose = false
   t.reek_opts = "--quiet"
-  t.source_files = "lib/**/*.rb"
+  t.source_files = "app/**/*.rb"
 end

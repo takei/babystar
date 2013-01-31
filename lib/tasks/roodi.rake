@@ -5,5 +5,5 @@ require "roodi"
 require "roodi_task"
 
 RoodiTask.new do | t |
-  t.patterns = %w(lib/**/*.rb spec/**/*.rb features/**/*.rb)
+  t.patterns = %w(app/**/*.rb)
 end

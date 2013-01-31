@@ -6,7 +6,7 @@ require "flog"
 desc "Analyze for code complexity"
 task :flog do
   flog = Flog.new
-  flog.flog [ "lib" ]
+  flog.flog [ "app" ]
   threshold = 10
 
   bad_methods = flog.totals.select do | name, score |

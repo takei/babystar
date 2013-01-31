@@ -7,6 +7,6 @@ require "flay_task"
 
 FlayTask.new do | t |
   # 必要に応じてチェック対象のディレクトリを追加する
-  t.dirs = %w( lib )
+  t.dirs = %w( app )
   t.threshold = 0
 end
