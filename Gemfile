@@ -24,7 +24,6 @@ group :assets do
 
 end
 
-
 group :metrics do
   gem 'ZenTest', '= 4.8.3'
   gem 'roodi', '~> 2.2.0'
@@ -36,6 +35,7 @@ end
 group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
+  gem 'ci_reporter'
 end
 
 gem 'jquery-rails'
