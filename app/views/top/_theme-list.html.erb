@@ -1,7 +1,7 @@
 <div class="dropdown clearfix" style="margin-left:-20px;">
 	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="width:auto; display:block; position:static; margin-bottom:5px;">
 		<% for theme in @themes %>
-		  <li><%= link_to(theme.name, top_showBt_path(theme.id) + '#mention-create', {:tabindex => -1}) %></li>
+		  <li><%= link_to(content_tag(:div, content_tag(:span, theme.name), :style => 'word-wrap:break-word'), top_showBt_path(theme.id) + '#mention-create', {:tabindex => -1}) %></li>
 	  <% end %>
 	  <li class="divider"></li>
 	  <li><%= link_to("テーマの追加", newBt_themes_path, {:tabindex => -1}) %></li>

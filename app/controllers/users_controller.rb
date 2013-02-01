@@ -24,6 +24,10 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+    @is_request_from_new_theme = false
+    if URI(request.referer).path == newBt_themes_path
+      @is_request_from_new_theme = true
+    end
     @user = User.new
 
     respond_to do |format|
@@ -44,8 +48,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        if params[:page][:is_request_from_new_theme]  == "true"
+          format.html { redirect_to newBt_themes_path }
+        else
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render json: @user, status: :created, location: @user }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }

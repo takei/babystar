@@ -1,8 +1,8 @@
 <div class="row">
-	<h3><%= @theme.name %>
+	<h3 style="word-wrap:break-word"><%= @theme.name %>
 		<p style="font-size:13px; line-height:18px; font-weight:normal">(<%= link_to 'テーマ削除', theme_deleteBt_path(@theme.id), {:method => :delete, :style => 'color:#0088CC', :confirm => "削除しますか？"} %>)</p>
 	</h3>
-	<p><%= @theme.description %></p>
+	<div style="word-wrap:break-word"><span><%= @theme.description %></span></div>
 </div>
 <div class="row">
 	<h4>Attenders</h4>

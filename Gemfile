@@ -19,8 +19,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 
- gem 'twitter-bootstrap-rails', '2.1.6'
- gem 'less-rails', '2.2.6'
+  gem 'twitter-bootstrap-rails', '2.1.6'
+  gem 'less-rails', '2.2.6'
 
 end
 
@@ -31,6 +31,11 @@ group :metrics do
   gem 'reek', '~> 1.2.13'
   gem 'flay'
   gem 'flog'
+end
+
+group :test do
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', :require => false
 end
 
 gem 'jquery-rails'
