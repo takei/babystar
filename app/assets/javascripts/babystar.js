@@ -28,5 +28,11 @@ $(function() {
 			}
 		}
 	});
+
+	$("span[class^='arrow_box_']").each(function(idx, item) {
+		var without_unnecessary_code = $(item).text().replace(/\t/g, "").replace(/\n/, "").replace(/\n$/, "");
+		$(item).text(without_unnecessary_code);
+		$(item).css("white-space", "pre");
+	});
 	
 });
