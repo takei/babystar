@@ -5,10 +5,10 @@
 			<%= image_tag("MC900432610.png", {:class => 'attender-img'}) %>
 	    <%= collection_select(:mention, :user_id, @attenders, :id, :name, {}, {:style => "width:80px;"}) %>
 		</div>
-		<div class="span6">
+		<div class="span6" style="margin-left:30px">
 			<div class="arrow_box_left">
 				<%= f.text_area(:content, {:style => "width:90%; border:none; max-width:90%; box-shadow:none; margin-bottom:0px;", :placeholder => "I'm saying...", :rows => '3'}) %>
-				<button type="submit" class="btn-link"><i class="icon-ok-sign"></i></button>
+				<button type="submit" class="btn-link" style="padding-left:0px"><i class="icon-ok-sign"></i></button>
 				<%= f.hidden_field :mentionedAt, :value => Time.now.strftime("%Y-%m-%d %H:%M:%S")  %>
 				<%= f.hidden_field :theme_id, :value => @theme.id %>
 			</div>	

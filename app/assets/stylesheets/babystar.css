@@ -18,6 +18,7 @@ i[class^="icon-"]:before, i[class^="icon-"]:after {
     border: 1px solid #999999;
     padding: 20px 0 20px;
     box-sizing: border-box;
+    width: 105%;
 }
 .pop_tag {
     border-left: 10px solid transparent;
