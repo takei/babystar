@@ -1,5 +1,10 @@
 $(function() {
-	
+
+	$("#availableUsers").after([
+      '<button type="button" id="removeUsersBtn"><i class="icon-arrow-left"></i></button>',
+      '<button type="button" id="selectUsersBtn"><i class="icon-arrow-right"></i></button>'
+		].join(""));
+
 	$("#selectUsersBtn").on("click", function(event) {
 		$("#availableUsers option:selected").each(function(idx, element){
 			console.log("added : " + $(element).text());
@@ -24,7 +29,7 @@ $(function() {
 			if (confirm("実行しますか？")) {
 				$('#theme-form').submit();
 			} else {
-			return false;
+				return false;
 			}
 		}
 	});
