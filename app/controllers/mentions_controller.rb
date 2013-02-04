@@ -1,6 +1,7 @@
 class MentionsController < ApplicationController
   def createBt
     @mention = Mention.new(params[:mention])
+    @mention.mentionedAt = Time.now.strftime("%Y-%m-%d %H:%M:%S")
     respond_to do |format|
       if @mention.save
         format.html {

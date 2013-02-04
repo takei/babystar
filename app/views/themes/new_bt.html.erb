@@ -21,8 +21,7 @@
       </label>
       <div class="controls">
         <%= collection_select :page, :name, @users, :id, :name, {}, {:multiple => 'multiple', :id => 'availableUsers'} %>
-        <button type="button" id="removeUsersBtn"><i class="icon-arrow-left"></i></button>
-        <button type="button" id="selectUsersBtn"><i class="icon-arrow-right"></i></button>
+        <!-- two buttons will be inserted by js -->
         <%= f.collection_select :users, [], :id, :name, {}, {:multiple => 'multiple', :id => 'selectedUsers'} %>
       </div>
     </div>
