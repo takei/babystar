@@ -1,3 +1,4 @@
+# Theme's data model
 class Theme < ActiveRecord::Base
   has_many :mentions
   has_many :users, :through => :contributors

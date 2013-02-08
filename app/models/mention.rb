@@ -1,3 +1,4 @@
+# Mention's data model
 class Mention < ActiveRecord::Base
   belongs_to :theme
   belongs_to :user

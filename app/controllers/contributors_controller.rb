@@ -1,3 +1,4 @@
+# This controller handle Contributors
 class ContributorsController < ApplicationController
   # GET /contributors
   # GET /contributors.json

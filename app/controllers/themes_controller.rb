@@ -1,15 +1,17 @@
+# Handling theme
 class ThemesController < ApplicationController
-  def newBt
+
+  def new
     @theme = Theme.new
     @users = User.all
-    render :template => 'themes/new_bt'
+    render :template => 'themes/new'
   end
 
-  def createBt
+  def create
     @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
 
     users = []
-    params[:theme][:users].each {|user_id| 
+    params[:theme][:users].each {|user_id|
       next if (user_id.empty?)
       user = User.find(user_id)
       users << user
@@ -20,16 +22,16 @@ class ThemesController < ApplicationController
       if @theme.save
         format.html { redirect_to '/top/' + @theme.id.to_s }
       else
-        format.html { render :template => 'themes/new_bt' }
+        format.html { render :template => 'themes/new' }
       end
     end
   end
 
-  def deleteBt
+  def delete
     @theme = Theme.find(params[:theme_id])
     @theme.destroy
     respond_to do |format|
-      format.html { redirect_to top_indexBt_path }
+      format.html { redirect_to top_index_path }
     end
   end
 
@@ -55,35 +57,9 @@ class ThemesController < ApplicationController
     end
   end
 
-  # GET /themes/new
-  # GET /themes/new.json
-  def new
-    @theme = Theme.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @theme }
-    end
-  end
-
   # GET /themes/1/edit
   def edit
     @theme = Theme.find(params[:id])
-  end
-
-  # POST /themes
-  # POST /themes.json
-  def create
-    @theme = Theme.new(params[:theme])
-    respond_to do |format|
-      if @theme.save
-        format.html { redirect_to @theme, notice: 'Theme was successfully created.' }
-        format.json { render json: @theme, status: :created, location: @theme }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @theme.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PUT /themes/1

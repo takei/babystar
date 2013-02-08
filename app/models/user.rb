@@ -1,3 +1,4 @@
+# User's data model
 class User < ActiveRecord::Base
   has_many :themes, :through => :contributors
   has_many :contributors
