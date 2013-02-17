@@ -1,12 +1,8 @@
 Babystar::Application.routes.draw do
-  match 'top', :controller => :top, :action => :indexBt, :via => :get, :as => 'top'
-  match 'top/indexBt', :controller => :top, :action => :indexBt, :via => :get, :as => 'top_indexBt'
-  match 'top/:theme_id', :controller => :top, :action => :showBt, :via => :get, :as => 'top_showBt'
-#①rootを指定するパターン
-  #match '/top/search' , :via => :post
-#②コントローラとアクションを指定するパターン
-  #match "top/search", :controller => :top, :action => :search , :via => :post
-  #match "top/create", :controller => :top, :action => :create , :via => :post
+
+  root :to => 'top#index'
+
+  resources :top, :only => :index
 
   # match "mentions/createBt", :controller => :mentions, :action => :createBt , :via => :post
   

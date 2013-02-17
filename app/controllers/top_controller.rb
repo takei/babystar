@@ -1,5 +1,11 @@
 class TopController < ApplicationController
 
+  def index
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
   ##　初期表示用
   def indexBt
     initialThemeId = Theme.find(:first)
