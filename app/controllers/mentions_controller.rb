@@ -27,7 +27,9 @@ class MentionsController < ApplicationController
   # GET /mentions/1
   # GET /mentions/1.json
   def show
-    @mention = Mention.find(params[:id])
+    @theme = Theme.find(params[:id])
+    @mention = Mention.new
+    #@mention = Mention.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
