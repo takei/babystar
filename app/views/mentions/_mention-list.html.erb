@@ -1,25 +1,16 @@
-<% prev_mention_user ||= nil 
-	 isLastMentiosnOnLeft ||= false
-%>
 <% for mention in @theme.mentions %>
 	<div class="row conversation-area">
-		<% if prev_mention_user == mention.user %>
-			<% if isLastMentiosnOnLeft %>
-				<%= render 'mention-left', {:mention => mention} %>
-				<% isLastMentiosnOnLeft = true %>
-			<% else %>
-				<%= render 'mention-right', {:mention => mention} %>
-				<% isLastMentiosnOnLeft = false %>
-			<% end %>
-		<% else %>
-			<% if isLastMentiosnOnLeft %>
-				<%= render 'mention-right', {:mention => mention} %>
-				<% isLastMentiosnOnLeft = false %>
-			<% else %>
-				<%= render 'mention-left', {:mention => mention} %>
-				<% isLastMentiosnOnLeft = true %>
-			<% end %>
-		<% end %>
-	</div><!-- conversation-area -->
-	<% prev_mention_user = mention.user %>
+		<div class="span1 attender-span">
+			<span><%= mention.user.name %></span>
+			<br/>
+			<span><%= mention.mentioned_at.strftime('%Y/%m/%d %H:%M:%S') %></span>
+			<br/>
+			<%= link_to 'Destroy', mention, method: :delete %>
+		</div>
+		<div class="span6">
+			<span class="arrow_box_left">
+				<%= mention.content %>
+			</span>	
+		</div>
+	</div>
 <% end %>

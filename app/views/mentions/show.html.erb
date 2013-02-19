@@ -1,14 +1,8 @@
-<% content_for :container do %>
-  <div class="row">
-    <div class="span8">
-      <%= render 'mention-list' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span3">
-    </div>
-    <div class="span8">
-      <%= render 'mention-new' %>
-    </div>
-  </div>
-<% end %> <!-- :container end-->
+<h1><%= @theme.name%></h1>
+<div>
+  <%= render 'mention-list' %>
+</div>
+<br/>
+<div>
+  <%= render 'mention-new' %>
+</div>

@@ -1,6 +1,5 @@
-<br>
 <%= form_for(@mention) do |f| %>
-	<div class="row l-area" id="mention-create">
+	<div class="row conversation-area" id="mention-create">
 		<div class="span1 attender-span">
 			<%= image_tag("MC900432610.png", {:class => 'attender-img'}) %>
 	    <%= collection_select(:mention, :user_id, @theme.users, :id, :name, {}, {:style => "width:80px;"}) %>

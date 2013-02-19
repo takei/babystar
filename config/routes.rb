@@ -12,9 +12,10 @@ Babystar::Application.routes.draw do
   
   resources :users
 
-  resources :mentions do
-    post 'createBt', :on => :collection #:idをpathに含めないために必要
-  end
+  match 'mentions/:theme_id', :controller => :mentions, :action => :show
+  match 'mentions/:id', :controller => :mentions, :action => :destroy, :via => 'delete'
+#  resources :mentions, :path => 'maintenance/mentions', :module => :maintenance, :except => [:new, :create, :destroy]
+
 
   resources :contributors
 

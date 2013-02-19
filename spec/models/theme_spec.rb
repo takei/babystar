@@ -18,6 +18,10 @@ describe Theme do
   it "テーマには複数のユーザが所属していること" do
     @theme.should have_at_least(2).users
   end
+
+  it "テーマには複数の発言があること" do
+    @theme.should have_at_least(2).mentions
+  end
 end
 
 describe Theme, "にユーザを追加できた場合" do
@@ -48,7 +52,4 @@ describe Theme, "name が設定されていない場合"do
   it ":nameにエラーが設定されていること" do
     @theme.should have(1).errors_on(:name)
   end
-
 end
-
-
