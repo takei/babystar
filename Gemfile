@@ -15,7 +15,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  #gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :path => '../../therubyracer-0.11.0beta1-x86-mingw32'
 
   gem 'uglifier', '>= 1.0.3'
 
@@ -56,3 +57,6 @@ gem 'rspec-rails', '2.12.0'
 
 # To use debugger
 # gem 'debugger'
+
+# Authentication
+gem 'devise'
