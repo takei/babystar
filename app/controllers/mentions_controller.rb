@@ -1,5 +1,8 @@
 class MentionsController < ApplicationController
 
+
+  # GET /mentions/[:theme_id]
+  # テーマに対応した発言一覧を返します。
   def show
     @theme = Theme.find(params[:theme_id])
     @mention = Mention.new
@@ -7,37 +10,24 @@ class MentionsController < ApplicationController
     render :action => 'show'
   end
 
-  # GET /mentions/new
-  # GET /mentions/new.json
-  def new
-    @mention = Mention.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @mention }
-    end
-  end
-
   # POST /mentions
-  # POST /mentions.json
+  # 新規の発言を作成します。
   def create
     @mention = Mention.new(params[:mention])
-    @mention.mentionedAt = Time.now
-    
+    @mention.mentioned_at = Time.now
+
     if @mention.save
-        redirect_to :action => 'show', :id => @mention.theme.id
+        redirect_to :action => 'show', :theme_id => @mention.theme.id
     else
+
     end
   end
 
-  # DELETE /mentions/1
-  # DELETE /mentions/1.json
+  # DELETE /mentions/[:id]
+  # 指定したIDに対応する発言を削除します。
   def destroy
     @mention = Mention.find(params[:id])
     @mention.destroy
-
-    respond_to do |format|
-      format.html { redirect_to mentions_url }
-      format.json { head :no_content }
-    end
+    redirect_to :action => 'show', :theme_id => @mention.theme.id
   end
 end

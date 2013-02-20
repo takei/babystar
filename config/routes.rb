@@ -9,13 +9,12 @@ Babystar::Application.routes.draw do
   #match "top/create", :controller => :top, :action => :create , :via => :post
 
   # match "mentions/createBt", :controller => :mentions, :action => :createBt , :via => :post
-  
+
   resources :users
 
-  match 'mentions/:theme_id', :controller => :mentions, :action => :show
-  match 'mentions/:id', :controller => :mentions, :action => :destroy, :via => 'delete'
-#  resources :mentions, :path => 'maintenance/mentions', :module => :maintenance, :except => [:new, :create, :destroy]
-
+  match 'mentions/:theme_id', :controller => :mentions, :action => :show, :via => 'get'
+  match 'mentions', :controller => :mentions, :action => :create, :via => 'post'
+  match 'mentions/:id', :controller => :mentions, :action => :destroy, :via => 'delete', :as => 'delete_mention'
 
   resources :contributors
 
