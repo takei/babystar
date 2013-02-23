@@ -37,11 +37,7 @@ class ThemesController < ApplicationController
   # GET /themes.json
   def index
     @themes = Theme.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @themes }
-    end
+    render
   end
 
   # GET /themes/1

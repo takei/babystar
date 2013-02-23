@@ -1,8 +1,14 @@
-<h1>Listing themes</h1>
+<% content_for :container do %>
 
-<table>
+<h2>Welcome!</h2>
+
+<%= link_to(raw('<i class="icon-file"></i>') + " 新規テーマ作成", new_theme_path, {:class => 'btn'}) %>
+
+<h3>現在のテーマ一覧</h3>
+
+<table class="table table-striped">
   <tr>
-    <th>Name</th>
+    <th>テーマタイトル</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,11 +19,11 @@
     <td><%= theme.name %></td>
     <td><%= link_to 'Show', theme %></td>
     <td><%= link_to 'Edit', edit_theme_path(theme) %></td>
-    <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', theme, method: :delete, data: { confirm: '削除しますか?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Theme', new_theme_path %>
+<% end %> <!-- :container end-->
