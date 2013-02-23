@@ -1,22 +1,13 @@
-<%= form_for(@theme) do |f| %>
-  <% if @theme.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@theme.errors.count, "error") %> prohibited this theme from being saved:</h2>
-
-      <ul>
-      <% @theme.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="control-group">
+  <label class="control-label" for="inputThemeTitle">テーマタイトル</label>
+  <div class="controls">
+    <%= f.text_field :name, {:id => 'inputThemeTitle', :placeholder => 'テーマタイトル', :maxlength => '15'} %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<div class="control-group">
+  <label class="control-label" for="inputDescription">テーマの説明</label>
+  <div class="controls">
+    <%= f.text_area :description, {:id => "textareaDescription", :placeholder => "テーマの説明", :style => "width:100%", :rows => "5"} %>
   </div>
-<% end %>
+</div>
+

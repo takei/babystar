@@ -54,6 +54,16 @@ class ThemesController < ApplicationController
   # GET /themes/1/edit
   def edit
     @theme = Theme.find(params[:id])
+
+    # @theme = Theme.find(params[:theme_id])
+    @attenders = @theme.users
+    @attender_ids = []
+    @attenders.each do |attender|
+      @attender_ids << attender.id
+    end
+    (@attender_ids.size() == 0) ? @attender_ids << 0 : @attender_ids
+    @users = User.where( "id NOT IN (?)", @attender_ids )
+    render 
   end
 
   # POST /themes
