@@ -27,12 +27,21 @@ $(function() {
 			return false;
 		} else {
 			if (confirm("実行しますか？")) {
+				selectAll("selectedUsers");
 				$('#theme-form').submit();
 			} else {
 				return false;
 			}
 		}
 	});
+
+	function selectAll(selectTagId) {
+		allValue = [];
+		$("#" + selectTagId + " option").each(function(idx, element) {
+			allValue.push($(element).val());
+		});
+		$("#" + selectTagId).val(allValue);
+	}
 
 	$("span[class^='arrow_box_']").each(function(idx, item) {
 		var without_unnecessary_code = $(item).text().replace(/\t/g, "").replace(/\n/, "").replace(/\n$/, "");
