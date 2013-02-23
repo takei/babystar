@@ -1,5 +1,5 @@
 <% content_for :container do %>
-  <%= form_for @theme, :url => createBt_themes_path, :html => {:id => 'theme-form'} do |f| %>
+  <%= form_for @theme, :html => {:id => 'theme-form'} do |f| %>
     <legend>テーマ作成</legend>
 
     <%= render 'form', {:f => f} %>

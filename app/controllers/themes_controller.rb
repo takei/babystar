@@ -5,7 +5,7 @@ class ThemesController < ApplicationController
     render
   end
 
-  def createBt
+  def create
     @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
 
     users = []
@@ -16,12 +16,10 @@ class ThemesController < ApplicationController
     }
     @theme.users = users
 
-    respond_to do |format|
-      if @theme.save
-        format.html { redirect_to '/top/' + @theme.id.to_s }
-      else
-        format.html { render :template => 'themes/new_bt' }
-      end
+    if @theme.save
+      redirect_to themes_path
+    else
+      render action: "new"
     end
   end
 
@@ -68,18 +66,18 @@ class ThemesController < ApplicationController
 
   # POST /themes
   # POST /themes.json
-  def create
-    @theme = Theme.new(params[:theme])
-    respond_to do |format|
-      if @theme.save
-        format.html { redirect_to @theme, notice: 'Theme was successfully created.' }
-        format.json { render json: @theme, status: :created, location: @theme }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @theme.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @theme = Theme.new(params[:theme])
+  #   respond_to do |format|
+  #     if @theme.save
+  #       format.html { redirect_to @theme, notice: 'Theme was successfully created.' }
+  #       format.json { render json: @theme, status: :created, location: @theme }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @theme.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /themes/1
   # PUT /themes/1.json
