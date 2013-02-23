@@ -1,14 +1,7 @@
 Babystar::Application.routes.draw do
 
-  root :to => 'top#index'
+  root :to => 'themes#index'
 
-  resources :top, :only => :index
-
-  match 'top/indexBt', :controller => :top, :action => :indexBt, :via => :get, :as => 'top_indexBt'
-  match 'top/:theme_id', :controller => :top, :action => :showBt, :via => :get, :as => 'top_showBt'
-
-  # match "mentions/createBt", :controller => :mentions, :action => :createBt , :via => :post
-  
   resources :users
 
   resources :mentions do
@@ -17,11 +10,7 @@ Babystar::Application.routes.draw do
 
   resources :contributors
 
-  resources :themes do
-    get 'newBt', :on => :collection
-    post 'createBt', :on => :collection
-    delete 'deleteBt'
-  end
+  resources :themes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
