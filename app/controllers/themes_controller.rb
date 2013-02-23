@@ -1,8 +1,8 @@
 class ThemesController < ApplicationController
-  def newBt
+  def new
     @theme = Theme.new
     @users = User.all
-    render :template => 'themes/new_bt'
+    render
   end
 
   def createBt
@@ -47,17 +47,6 @@ class ThemesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @theme }
-    end
-  end
-
-  # GET /themes/new
-  # GET /themes/new.json
-  def new
-    @theme = Theme.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.json { render json: @theme }
     end
   end
