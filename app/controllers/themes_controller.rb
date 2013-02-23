@@ -23,12 +23,10 @@ class ThemesController < ApplicationController
     end
   end
 
-  def deleteBt
-    @theme = Theme.find(params[:theme_id])
+  def destroy
+    @theme = Theme.find(params[:id])
     @theme.destroy
-    respond_to do |format|
-      format.html { redirect_to top_indexBt_path }
-    end
+    redirect_to themes_path
   end
 
   # GET /themes
@@ -97,13 +95,13 @@ class ThemesController < ApplicationController
 
   # DELETE /themes/1
   # DELETE /themes/1.json
-  def destroy
-    @theme = Theme.find(params[:id])
-    @theme.destroy
+  # def destroy
+  #   @theme = Theme.find(params[:id])
+  #   @theme.destroy
 
-    respond_to do |format|
-      format.html { redirect_to themes_url }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to themes_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 end
