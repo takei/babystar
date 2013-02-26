@@ -19,7 +19,7 @@ class MentionsController < ApplicationController
     if @mention.save
         redirect_to :action => 'show', :theme_id => @mention.theme.id
     else
-
+      # TODO 失敗したときのハンドリング考える
     end
   end
 
