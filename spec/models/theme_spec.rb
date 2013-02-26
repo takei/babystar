@@ -10,7 +10,7 @@ describe Theme do
 end
 
 describe Theme do
-  fixtures :themes, :users, :contributors
+  fixtures :themes, :users, :contributors, :mentions
   before do
     @theme = themes(:theme_01)
   end
