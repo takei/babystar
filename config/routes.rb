@@ -1,4 +1,5 @@
 Babystar::Application.routes.draw do
+  # devise
   devise_for :users
 
   match 'top', :controller => :top, :action => :indexBt, :via => :get, :as => 'top'
