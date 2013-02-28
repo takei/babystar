@@ -2,10 +2,10 @@
 
 # カバレッジ取得の設定
 # 他の require より先に実行する必要がある
-require 'simplecov'
-require 'simplecov-rcov'
-SimpleCov.start 'rails'
-SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+#require 'simplecov'
+#require 'simplecov-rcov'
+#SimpleCov.start 'rails'
+#SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 
 
 ENV["RAILS_ENV"] ||= 'test'

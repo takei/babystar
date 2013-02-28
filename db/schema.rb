@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221155107) do
+ActiveRecord::Schema.define(:version => 20130219065812) do
 
   create_table "contributors", :force => true do |t|
     t.integer  "theme_id"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(:version => 20121221155107) do
 
   create_table "mentions", :force => true do |t|
     t.string   "content"
-    t.string   "mentionedAt"
+    t.datetime "mentioned_at", :limit => 255
     t.integer  "theme_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "themes", :force => true do |t|

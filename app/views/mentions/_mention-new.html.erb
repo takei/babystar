@@ -1,0 +1,15 @@
+<%= form_for(@mention) do |f| %>
+	<div class="row conversation-area" id="mention-create">
+		<div class="span1 attender-span">
+			<%= image_tag("MC900432610.png", {:class => 'attender-img'}) %>
+	    <%= collection_select(:mention, :user_id, @theme.users, :id, :name, {}, {:style => "width:80px;"}) %>
+		</div>
+		<div class="span6 arrow_box_left_mention_create">
+			<%= f.text_area(:content, {:style => "width:90%; border:none; max-width:90%; box-shadow:none; margin-bottom:0px;", :placeholder => "I'm saying...", :rows => '3'}) %>
+			<button type="submit" class="btn-link" style="padding-left:0px"><i class="icon-ok-sign"></i></button>
+			<%= f.hidden_field :theme_id, :value => @theme.id %>
+		</div>
+		<div class="span1 attender-span">
+		</div>
+	</div><!-- conversation-area -->
+<% end %>

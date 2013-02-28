@@ -10,13 +10,17 @@ describe Theme do
 end
 
 describe Theme do
-  fixtures :themes, :users, :contributors
+  fixtures :themes, :users, :contributors, :mentions
   before do
     @theme = themes(:theme_01)
   end
 
   it "テーマには複数のユーザが所属していること" do
     @theme.should have_at_least(2).users
+  end
+
+  it "テーマには複数の発言があること" do
+    @theme.should have_at_least(2).mentions
   end
 end
 
@@ -48,7 +52,4 @@ describe Theme, "name が設定されていない場合"do
   it ":nameにエラーが設定されていること" do
     @theme.should have(1).errors_on(:name)
   end
-
 end
-
-
