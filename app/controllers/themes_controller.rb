@@ -7,10 +7,9 @@ class ThemesController < ApplicationController
 
   def create
     @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
-    users = make_user_list(params[:theme][:users])
-    @theme.users = users
+    @theme.users = make_user_list(params[:theme][:users])
     if @theme.save
-      redirect_to themes_path
+      redirect_to "/mentions/" + @theme.id.to_s
     else
       render action: "new"
     end

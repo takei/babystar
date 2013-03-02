@@ -34,12 +34,10 @@ describe ThemesController do
         post :create, :theme => @params
       }.to change { Theme.count }.by(1)
     end
-    # TODO 後でリダイレクト先をmentions/:theme_idに変更する
     it 'redirect to the new theme.' do
-      #new_id = Theme.find(:all).size + 1
+      new_id = Theme.find(:all).size + 1
       post :create, :theme => @params
-      #expect(response).to redirect_to '/mentions/'+new_id
-      expect(response).to redirect_to themes_path
+      expect(response).to redirect_to '/mentions/' + new_id.to_s
     end
   end
 

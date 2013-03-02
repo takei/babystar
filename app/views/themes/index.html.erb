@@ -15,7 +15,7 @@
 
 <% @themes.each do |theme| %>
   <tr>
-    <td><%= theme.name %></td>
+    <td><%= link_to theme.name, "/mentions/"+theme.id.to_s, {:style => 'color:#0088CC'} %></td>
     <td><%= link_to '編集', edit_theme_path(theme), style: 'color:#0088CC' %></td>
     <td><%= link_to '削除', theme, method: :delete, data: { confirm: '削除しますか?' }, style: 'color: #0088CC' %></td>
   </tr>
