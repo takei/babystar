@@ -7,7 +7,7 @@ class ThemesController < ApplicationController
 
   def create
     @theme = Theme.new(:name => params[:theme][:name], :description => params[:theme][:description])
-    users = makeUserList(params[:theme][:users])
+    users = make_user_list(params[:theme][:users])
     @theme.users = users
     if @theme.save
       redirect_to themes_path
@@ -56,7 +56,7 @@ class ThemesController < ApplicationController
     @theme = Theme.find(params[:id])
     @theme.name = params[:theme][:name]
     @theme.description = params[:theme][:description]
-    users = makeUserList(params[:theme][:users])
+    users = make_user_list(params[:theme][:users])
     @theme.users.replace(users);
     if @theme.save
       redirect_to themes_path
@@ -66,14 +66,11 @@ class ThemesController < ApplicationController
   end
 
 private
-  def makeUserList(ids)
-    users = []
-    ids.each {|user_id| 
+  def make_user_list(ids)
+    ids.map { |user_id|
       next if (user_id.empty?)
-      user = User.find(user_id)
-      users << user
-    }
-    users
+      User.find(user_id)
+    }.compact
   end
 
 end
