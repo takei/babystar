@@ -10,44 +10,47 @@ describe ThemesController do
     end
     it 'delete theme and mentions in it' do
       expect {
-        post :deleteBt, :theme_id => @theme.id
+        post :destroy, :id => @theme.id
       }.to change { Theme.count }.by(-1)
     end
-    it 'redirect to top' do
-      post :deleteBt, :theme_id => @theme.id
-      expect(response).to redirect_to top_indexBt_path
+    it 'redirect to theme-list' do
+      post :destroy, :id => @theme.id
+      expect(response).to redirect_to themes_path
     end
   end
 
 	it 'show the form to create theme' do
-		get :newBt
-		expect(response).to render_template 'themes/new_bt'
-	end
-
-	it 'create a theme on POST "create"' do
-		expect { 
-			post :create, :theme => {:name => 'dummy'}
-		}.to change { Theme.count }.by(1)
+		get :new
+		expect(response).to render_template 'themes/new'
 	end
 
   context 'when success on save' do
     before do
-      @params = {:name => 'dummy', :users => [1]}
+      user_id = users(:user_01)
+      @params = {:name => 'dummy', :description => 'dummy', :users => [user_id]}
     end
-    it 'redirect to top showing the new theme.' do
-      new_id = Theme.find(:all).size + 1
-      post :createBt, :theme => @params
-      expect(response).to redirect_to '/top/' + new_id.to_s
+    it 'create a theme on POST "create"' do
+      expect { 
+        post :create, :theme => @params
+      }.to change { Theme.count }.by(1)
+    end
+    # TODO 後でリダイレクト先をmentions/:theme_idに変更する
+    it 'redirect to the new theme.' do
+      #new_id = Theme.find(:all).size + 1
+      post :create, :theme => @params
+      #expect(response).to redirect_to '/mentions/'+new_id
+      expect(response).to redirect_to themes_path
     end
   end
 
   context 'when error on save' do
     before do
-      @params = {:name => '', :users => [1]}
+      user_id = users(:user_01)
+      @params = {:name => '', :description => 'dummy', :users => [user_id]}
     end
-    it 'render newBt.' do
-      post :createBt, :theme => @params
-      expect(response).to render_template 'themes/new_bt'
+    it 'render new' do
+      post :create, :theme => @params
+      expect(response).to render_template 'themes/new'
     end
   end
 
