@@ -1,6 +1,28 @@
-<h1>Editing theme</h1>
+<% content_for :container do %>
+  <%= form_for @theme, :html => {:id => 'theme-form'} do |f| %>
+    <legend>テーマ編集</legend>
 
-<%= render 'form' %>
+    <%= render 'form', {:f => f} %>
 
-<%= link_to 'Show', @theme %> |
-<%= link_to 'Back', themes_path %>
+    <div class="control-group">
+      <label class="control-label" for="availableUsers">
+        参加者選択
+        (<%= link_to 'ユーザー作成', new_user_path, {:style => 'color:#0088CC'} %>)
+      </label>
+      <div class="controls">
+        <%= collection_select :page, :name, @users, :id, :name, {}, {:multiple => 'multiple', :id => 'availableUsers'} %>
+        <!-- two buttons will be inserted by js -->
+        <%= f.collection_select :users, @attenders, :id, :name, {:selected => @attender_ids}, {:multiple => 'multiple', :id => 'selectedUsers'} %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= link_to(raw('<i class="icon-ok"></i>') + " 更新", "#", {:class => 'btn', :id => "create-theme"}) %>
+        <%= link_to(raw('<i class="icon-remove"></i>') + " キャンセル", themes_path, {:class => 'btn'}) %>
+      </div>
+    </div>
+
+  <% end %>
+<% end %> <!-- :container end-->
+
